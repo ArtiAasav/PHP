@@ -7,6 +7,32 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   </head>
   <body>
+    <h1>Harjutus 04.7</h1>
+    <h2>Hinne</h2>
+
+    <form action="#" method="get">
+    Punktid <input type="number" name="punktid" required value="5" min="1" max="10"><br>
+    <input type="submit" value="Anna hinne">
+    </form>
+
+    <?php
+       if(isset($_GET["punktid"])){
+          $vanus = $_GET["punktid"];
+        
+          switch($punktid){
+            case($punktid>=10): echo '3';
+            break;
+            case(($punktid>=5) && ($punktid<=9)): echo '3';
+            break;
+            default: echo 'MA';
+          }
+        }
+
+    ?>
+
+
+
+
     <h1>Harjutus 04</h1>
     <h2>Juubel</h2>
     <form action="#" method="get">
