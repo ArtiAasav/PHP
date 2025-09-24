@@ -10,15 +10,28 @@
     <h1>Harjutus 05.8</h1>
     <h2>Pildid</h2>
     
+     <?php
+        $pildid = array("prentice.jpg","freeland.jpg","peterus.jpg","devlin.jpg","gabriel.jpg","pete.jpg");
+        ?>
+
     <div class="container">
         <div class="row">
-            <?php
-                $pildid = array("prentice.jpg","freeland.jpg","peterus.jpg","devlin.jpg","gabriel.jpg","pete.jpg");
+            <div class="col-sm-4">
+                <img src="/img/<?php echo $pildid[2]; ?>" alt="">
+            </div>
+        </div>
 
-                foreach ($pildid)
-            ?>
-
+        <div class="row">
+                <?php
+                foreach ($pildid as $pilt) {
+                    echo '<div class="col-sm-2">';
+                    echo '<img class="img-fluid" src="/img/'.$pilt.'" alt="">';
+                    echo '</div>';
+                }   
+                ?>
+        </div>
     </div>
+
 
     <h1>Harjutus 05.7</h1>
     <h2>Google</h2>
