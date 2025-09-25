@@ -10,7 +10,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
     <!-- CSS here -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="assets/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="assets/css/slicknav.css">
     <link rel="stylesheet" href="assets/css/flaticon.css">
@@ -24,6 +24,11 @@
     <link rel="stylesheet" href="assets/css/slick.css">
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  
 </head>
 
 <body class="full-wrapper">
@@ -58,24 +63,21 @@
                                     <div class="main-menu d-none d-lg-block">
                                         <nav>
                                             <ul id="navigation">                                                                                          
-                                                <li><a href="index.html">Home</a></li>
-                                                <li><a href="about.html">About</a></li>
-                                                <li><a href="services.html">services</a></li>
-                                                <li><a href="blog.html">Blog</a>
+                                                <li><a href="index.html">Avaleht</a></li>
+                                                <li><a href="about.html">Autopesu kalkulaator</a></li>
+                                                <li><a href="services.html">Teenused</a></li>
+                                                <li><a href="blog.html">Kontakt</a>
                                                     <ul class="submenu">
                                                         <li><a href="blog.html">Blog</a></li>
                                                         <li><a href="blog_details.html">Blog Details</a></li>
                                                         <li><a href="elements.html">Element</a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="contact.html">Contact</a></li>
+                                                <li><a href="contact.html">Ostukorv</i></a></li>
                                             </ul>
                                         </nav>
                                     </div>
                                     <!-- Header-btn -->
-                                    <div class="header-right-btn d-none d-lg-block ml-20">
-                                        <a href="contact.html" class="btn header-btn"><img src="assets/img/icon/smartphone.svg" alt=""> 10 (87) 256-2903</a>
-                                    </div>
                                 </div>
                             </div> 
                             <!-- Mobile Menu -->
@@ -89,6 +91,41 @@
         </div>
         <!-- Header End -->
     </header>
+
+     <style>
+        .carousel-item img {
+            max-height: 800px;
+            object-fit: cover;
+        }
+    </style>
+
+    <div id="carouselExample" class="carousel slide">
+  <div class="carousel-inner img-fluid">
+    
+        <?php
+        $pildid = glob('reklaam/*.{jpg,jpeg,png,gif}', GLOB_BRACE);
+        shuffle($pildid);
+        $active = 'active';
+
+        foreach ($pildid as $pilt) {
+            echo '<div class="carousel-item ' . $active . '">';
+            echo '<img src="' . $pilt . '" class="d-block w-100 img-fluid" alt="Reklaam">';
+            echo '</div>';
+            $active = '';
+        }
+        ?>
+
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
     <main>
         <!-- slider Area Start-->
         <div class="container-fluid">
@@ -466,7 +503,7 @@
 <!-- Jquery, Popper, Bootstrap -->
 <script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
 <script src="./assets/js/popper.min.js"></script>
-<script src="./assets/js/bootstrap.min.js"></script>
+<!-- <script src="./assets/js/bootstrap.min.js"></script> -->
 <!-- Jquery Mobile Menu -->
 <script src="./assets/js/jquery.slicknav.min.js"></script>
 
@@ -502,6 +539,7 @@
 <!-- Jquery Plugins, main Jquery -->	
 <script src="./assets/js/plugins.js"></script>
 <script src="./assets/js/main.js"></script>
+
 
 </body>
 </html>
