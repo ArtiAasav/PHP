@@ -1,0 +1,55 @@
+Teenuse nimi;Hind;Kirjeldus;Pilt
+Salongi puhastus;25;Tolmu ja prahi eemaldamine;salong.jpg
+Vahatamine;30;Auto kerge vahatamine;vahatus.jpg
+Rehvipesu;10;Rehvide ja velgede puhastus;rehvipesu.jpg
+Mootoripesu;40;Mootoriruumi survepesu;mootor.jpg
+Kerepesu;15;Välipesu käsitsi;kere.jpg
+Poleerimine;60;Kere poleerimine läikima;poleerimine.jpg
+Täispakett;100;Kõik-ühes puhastus;taiispakett.jpg
+Nahkistmete puhastus;35;Nahkistmete hooldus;nahk.jpg
+Salongi desinfitseerimine;20;Õhu ja pindade deso;deso.jpg
+Vaipade pesu;15;Salongi vaipade pesu;vaibad.jpg
+Klaaside puhastus;12;Seest ja väljast;klaasid.jpg
+Konditsioneeri puhastus;50;Konditsioneeri hooldus;konditsioneer.jpg
+
+     <!--? Teenused Start (MUUDETUD OSA) -->
+        <section class="pricing-card-area fix section-padding30">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6 col-lg-7 col-md-10">
+                        <div class="section-tittle text-center mb-90">
+                            <h2>Meie teenused</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <?php
+                    // CSV failist lugemine
+                    if (($handle = fopen("services.csv", "r")) !== FALSE) {
+                        // Loeme päise vahele
+                        $header = fgetcsv($handle, 1000, ";");
+                        while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
+                            $nimi = $data[0];
+                            $hind = $data[1];
+                            $kirjeldus = $data[2];
+                            $pilt = $data[3];
+
+                            echo '<div class="col-md-4 mb-4">';
+                            echo '  <div class="card h-100 text-center shadow">';
+                            echo '    <img src="pildid/' . htmlspecialchars($pilt) . '" class="card-img-top" alt="' . htmlspecialchars($nimi) . '">';
+                            echo '    <div class="card-body">';
+                            echo '      <h5 class="card-title">' . htmlspecialchars($nimi) . '</h5>';
+                            echo '      <p class="card-text">' . htmlspecialchars($kirjeldus) . '</p>';
+                            echo '      <p class="fw-bold">' . htmlspecialchars($hind) . ' €</p>';
+                            echo '      <a href="#" class="btn btn-primary">Lisa ostukorvi</a>';
+                            echo '    </div>';
+                            echo '  </div>';
+                            echo '</div>';
+                        }
+                        fclose($handle);
+                    }
+                    ?>
+                </div>
+            </div>
+        </section>
+        <!--? Teenused End -->
