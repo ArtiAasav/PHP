@@ -63,15 +63,15 @@
                                     <div class="main-menu d-none d-lg-block">
                                         <nav>
                                             <ul id="navigation">                                                                                          
-                                                <li><a href="index.html">Avaleht</a></li>
-                                                <li><a href="about.html">Autopesu kalkulaator</a></li>
+                                                <li><a href="index.php">Avaleht</a></li>
+                                                <li><a href="about.php">Autopesu kalkulaator</a></li>
                                                 <li><a href="services.html">Teenused</a></li>
-                                                <li><a href="blog.html">Kontakt</a>
-                                                    <ul class="submenu">
+                                                <li><a href="contact.php">Kontakt</a>
+                                                    <!-- <ul class="submenu">
                                                         <li><a href="blog.html">Blog</a></li>
                                                         <li><a href="blog_details.html">Blog Details</a></li>
                                                         <li><a href="elements.html">Element</a></li>
-                                                    </ul>
+                                                    </ul> -->
                                                 </li>
                                                 <li><a href="contact.html">Ostukorv</i></a></li>
                                             </ul>
@@ -128,11 +128,11 @@
 
     <main>
         <!-- slider Area Start-->
-        <div class="container-fluid">
+        <!-- <div class="container-fluid">
             <div class="slider-area position-relative">
                 <div class="slider-active dot-style">
-                    <!-- Single Slider -->
-                    <div class="single-slider hero-overly slider-height slider-bg1 d-flex align-items-center">
+                    Single Slider -->
+                    <!-- <div class="single-slider hero-overly slider-height slider-bg1 d-flex align-items-center">
                         <div class="container">
                             <div class="row">
                                 <div class="col-xl-9 col-lg-11 col-md-11">
@@ -145,8 +145,8 @@
                                             </div>
                                             <P data-animation="fadeInUp" data-delay=".4s">Duis aute irure dolor inasfa reprehenderit in voluptate 
                                             velit esse cillum reeut cupidatatfug.</P>
-                                            <!-- Hero-btn -->
-                                            <div class="hero__btn">
+                                            Hero-btn
+                                             <div class="hero__btn">
                                                 <a href="industries.html" class="btn mb-10"  data-animation="fadeInUp" data-delay=".8s">Our Services</a>
                                             </div>
                                         </div>
@@ -158,7 +158,7 @@
                 </div>
             </div>
         </div>
-        <!-- slider Area End-->
+        slider Area End -->
         <!--? Office environment  Start-->
         <section class="office-environments" >
             <div class="container">
@@ -179,82 +179,82 @@
         </section>
         <!-- Office environment  End-->
         <!--? Pricing Card Start -->
-        <section class="pricing-card-area fix section-padding30">
+         <section class="pricing-card-area fix section-padding30">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-xl-6 col-lg-7 col-md-10">
                         <div class="section-tittle text-center mb-90">
-                            <h2>We offer best services to our customer</h2>
+                            <h2>Meie teenused</h2>
                         </div>
                     </div>
                 </div>
+
                 <div class="row">
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-10">
-                        <div class="single-card text-center mb-30">
-                            <div class="card-top">
-                                <img src="assets/img/icon/price1.svg" alt="">
-                                <h4>Car wash</h4>
-                                <p>Starting at</p>
-                            </div>
-                            <div class="card-mid">
-                                <h4>$50.00</h4>
-                            </div>
-                            <div class="card-bottom">
-                                <ul>
-                                    <li>2 TB of space</li>
-                                    <li>unlimited bandwidth</li>
-                                    <li>full backup systems</li>
-                                    <li>free domain</li>
-                                    <li>unlimited database</li>
-                                </ul>
-                                <a href="#" class="borders-btn">Get Started</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-10">
-                        <div class="single-card text-center mb-30">
-                            <div class="card-top">
-                                <img src="assets/img/icon/price1.svg" alt="">
-                                <h4>Detailing</h4>
-                                <p>Starting at</p>
-                            </div>
-                            <div class="card-mid">
-                                <h4>$100.00</h4>
-                            </div>
-                            <div class="card-bottom">
-                                <ul>
-                                    <li>2 TB of space</li>
-                                    <li>unlimited bandwidth</li>
-                                    <li>full backup systems</li>
-                                    <li>free domain</li>
-                                    <li>unlimited database</li>
-                                </ul>
-                                <a href="#" class="borders-btn">Get Started</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-10">
-                        <div class="single-card text-center mb-30">
-                            <div class="card-top">
-                                <img src="assets/img/icon/price1.svg" alt="">
-                                <h4>Wash & Detailing</h4>
-                                <p>Starting at</p>
-                            </div>
-                            <div class="card-mid">
-                                <h4>$200.00</h4>
-                            </div>
-                            <div class="card-bottom">
-                                <ul>
-                                    <li>2 TB of space</li>
-                                    <li>unlimited bandwidth</li>
-                                    <li>full backup systems</li>
-                                    <li>free domain</li>
-                                    <li>unlimited database</li>
-                                </ul>
-                                <a href="#" class="borders-btn">Get Started</a>
-                            </div>
-                        </div>
-                    </div>
+                <?php
+                // === DEBUG: lülita ajutiselt sisse, kui tahad näha vigu ===
+                // ini_set('display_errors',1); error_reporting(E_ALL);
+
+                $csvFile = __DIR__ . '/services.csv'; // kontrollib sama kausta
+                $imagesDir = 'pildid/'; // piltide kaust (muuda vajadusel)
+                $fallbackImage = 'assets/img/default-service.jpg'; // varupilt - lisa see faili
+
+                if (!file_exists($csvFile)) {
+                    echo '<div class="col-12"><div class="alert alert-danger">Viga: services.csv ei leitud kaustast ' . htmlspecialchars(__DIR__) . '.</div></div>';
+                } else {
+                    // Loeme read (ignoreerime tühjad read)
+                    $lines = file($csvFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+                    if (!$lines || count($lines) < 2) {
+                        echo '<div class="col-12"><div class="alert alert-warning">services.csv on tühi või puudub reaalne teenuste rida.</div></div>';
+                    } else {
+                        // Eemaldame võimaliku BOM esimese read algusest
+                        $lines[0] = preg_replace('/^\x{FEFF}/u', '', $lines[0]);
+
+                        $count = 0;
+                        // Jätame esimese rea (päise) vahele
+                        for ($i = 1; $i < count($lines); $i++) {
+                            $row = str_getcsv($lines[$i], ';');
+                            // tagame vähemalt 3 veergu (nimi;hind;kirjeldus ja vabatahtlik pilt)
+                            if (!$row || count($row) < 3) continue;
+
+                            $nimi = trim($row[0]);
+                            $hind = trim($row[1]);
+                            $kirjeldus = trim($row[2]);
+                            $pilt = isset($row[3]) ? trim($row[3]) : '';
+
+                            // fallback pilt kui puudub
+                            $imgPath = $fallbackImage;
+                            if ($pilt !== '' && file_exists($imagesDir . $pilt)) {
+                                $imgPath = $imagesDir . $pilt;
+                            } elseif (file_exists($imagesDir . strtolower($pilt))) {
+                                $imgPath = $imagesDir . strtolower($pilt);
+                            }
+
+                            // turvaline väljaprintimine
+                            $nimi_html = htmlspecialchars($nimi);
+                            $kirjeldus_html = htmlspecialchars($kirjeldus);
+                            $hind_html = htmlspecialchars($hind);
+
+                            echo '<div class="col-md-4 mb-4">';
+                            echo '  <div class="card h-100 text-center shadow">';
+                            echo '    <img src="'. $imgPath .'" class="card-img-top" alt="'. $nimi_html .'" style="max-height:200px;object-fit:cover;">';
+                            echo '    <div class="card-body d-flex flex-column">';
+                            echo '      <h5 class="card-title">'. $nimi_html .'</h5>';
+                            echo '      <p class="card-text">'. $kirjeldus_html .'</p>';
+                            echo '      <p class="fw-bold mt-auto">'. $hind_html .' €</p>';
+                            echo '      <a href="#" class="btn btn-primary">Lisa ostukorvi</a>';
+                            echo '    </div>';
+                            echo '  </div>';
+                            echo '</div>';
+
+                            $count++;
+                        }
+
+                        if ($count === 0) {
+                            echo '<div class="col-12"><div class="alert alert-info">CSV fail ei sisalda sobivaid teenuseid (vähemalt 1 rida peale päist).</div></div>';
+                        }
+                    }
+                }
+                ?>
                 </div>
             </div>
         </section>
