@@ -1,13 +1,5 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
-
-<style>
-        .carousel-item img {
-            max-height: 800px;
-            object-fit: cover;
-        }
-    </style>
-    
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -37,6 +29,13 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   
+  <style>
+        .carousel-item img {
+            max-height: 800px;
+            object-fit: cover;
+        }
+    </style>
+    
 </head>
 
 <body class="full-wrapper">
