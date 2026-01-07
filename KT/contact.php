@@ -53,7 +53,7 @@
                                             <ul id="navigation">                                                                                          
                                                 <li><a href="index.php">Avaleht</a></li>
                                                 <li><a href="kalkulaator.php">Autopesu kalkulaator</a></li>
-                                                <li><a href="services.html">Teenused</a></li>
+                                                <li><a href="teenused.php">Teenused</a></li>
                                                 <li><a href="contact.php">Kontakt</a>
                                                     <!-- <ul class="submenu">
                                                         <li><a href="blog.html">Blog</a></li>
@@ -173,7 +173,7 @@ if ($success) {
                                 <div class="single-footer-caption mb-30">
                                     <!-- logo -->
                                     <div class="footer-logo mb-35">
-                                        <a href="index.html"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
+                                        <a href="index.php"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
                                     </div>
                                     <div class="footer-tittle">
                                         <div class="footer-pera">
