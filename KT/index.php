@@ -1,5 +1,13 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
+
+<style>
+        .carousel-item img {
+            max-height: 800px;
+            object-fit: cover;
+        }
+    </style>
+    
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -31,13 +39,6 @@
   
 </head>
 
-<style>
-        .carousel-item img {
-            max-height: 800px;
-            object-fit: cover;
-        }
-    </style>
-    
 <body class="full-wrapper">
     <!-- ? Preloader Start -->
     <div id="preloader-active">
