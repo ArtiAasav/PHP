@@ -54,7 +54,7 @@
                                                 <li><a href="index.php">Avaleht</a></li>
                                                 <li><a href="kalkulaator.php">Autopesu kalkulaator</a></li>
                                                 <li><a href="teenused.php">Teenused</a></li>
-                                                <li><a href="contact.php">Kontakt</a>
+                                                <li><a href="kontakt.php">Kontakt</a>
                                                     <!-- <ul class="submenu">
                                                         <li><a href="blog.html">Blog</a></li>
                                                         <li><a href="blog_details.html">Blog Details</a></li>
