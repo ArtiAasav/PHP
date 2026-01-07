@@ -122,7 +122,7 @@ if ($success) {
 
 <div class="mb-5">
     <div id="map">
-        <iframe width="100" height="400" class="border" frameborder="0" scrolling="no"
+        <iframe width="100%" height="400" class="border" frameborder="0" scrolling="no"
         src="https://www.openstreetmap.org/export/embed.html?bbox=24.745%2C59.435%2C24.765%2C59.445&layer=mapnik&marker=59.44%2C24.755">
         </iframe>
     </div>
