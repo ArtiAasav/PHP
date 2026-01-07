@@ -123,7 +123,7 @@ if ($success) {
 
 <div class="mb-5">
     <div id="map">
-        <iframe width="100%" height="400" class="border" frameborder="0" scrolling="no"
+        <iframe width="100" height="400" class="border" frameborder="0" scrolling="no"
         src="https://www.openstreetmap.org/export/embed.html?bbox=24.745%2C59.435%2C24.765%2C59.445&layer=mapnik&marker=59.44%2C24.755">
         </iframe>
     </div>
@@ -153,8 +153,6 @@ if ($success) {
         <a href="index.php" class="btn btn-link">← Tagasi avalehele</a>
     </form>
 </div>
-</body>
-</html>
 
     </main>
     <footer>
@@ -185,7 +183,7 @@ if ($success) {
                         <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
                             <div class="single-footer-caption mb-50">
                                 <div class="footer-tittle">
-                                    <h4>Opening hour</h4>
+                                    <h2>Opening hour</h2>
                                     <ul>
                                         <li><a href="#">Mon-Fri (9.00-19.00)</a></li>
                                         <li><a href="#">Sat (12.00-19.00)</a></li>
@@ -197,7 +195,7 @@ if ($success) {
                         <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6">
                             <div class="single-footer-caption mb-50">
                                 <div class="footer-tittle">
-                                    <h4>Navigation</h4>
+                                    <h3>Navigation</h3>
                                     <ul>
                                         <li><a href="#">Home</a></li>
                                         <li><a href="#">About</a></li>
