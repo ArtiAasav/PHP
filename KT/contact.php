@@ -12,7 +12,21 @@
         #map { width: 100%; height: 400px; margin-bottom: 20px; border:1px solid #ccc; }
     </style>
 </head>
-<header>
+
+<body>
+    <!-- ? Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="assets/img/logo/loder.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+    <header>
         <!-- Header Start -->
         <div class="header-area">
             <div class="main-header ">
@@ -59,10 +73,9 @@
         </div>
         <!-- Header End -->
     </header>
-<body>
 <div class="container py-5">
     <h1 class="mb-4">Võta meiega ühendust</h1>
-
+    
 <?php
 $errors = [];
 $success = '';
