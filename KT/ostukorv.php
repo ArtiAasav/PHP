@@ -70,6 +70,8 @@ if (isset($_SESSION['cart'])) {
             <button type="submit" name="empty_cart" class="btn btn-danger">Tühjenda ostukorv</button>
         </form>
     <?php endif; ?>
+
+    <a href="index.php" class="btn btn-link">← Tagasi avalehele</a>
 </div>
 
 </body>
