@@ -214,7 +214,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         ?>
                         <img src="<?php echo htmlspecialchars($imgPath); ?>" class="card-img-top" style="max-height:200px;object-fit:cover;" alt="<?php echo htmlspecialchars($s['name']); ?>">
                         <div class="card-body">
-                            <h5 class="card-title"><?php echo htmlspecialchars($s['name']); ?></h5>
+                            <h2 class="card-title"><?php echo htmlspecialchars($s['name']); ?></h2>
                             <p class="card-text small"><?php echo htmlspecialchars($s['desc']); ?></p>
                             <p class="fw-bold mb-0"><?php echo number_format($s['price'], 2, ',', ' '); ?> €</p>
                         </div>
