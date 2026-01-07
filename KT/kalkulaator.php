@@ -227,85 +227,81 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php endif; ?>
 </div> -->
 
-<?php if (!empty($errors)): ?>
-    <div class="alert alert-danger">
-        <?php foreach ($errors as $e) echo '<div>' . htmlspecialchars($e) . '</div>'; ?>
-    </div>
-<?php endif; ?>
+<section class="pricing-card-area fix section-padding30">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-6 col-lg-7 col-md-10">
+                <div class="section-tittle text-center mb-90">
+                    <h2>Meie teenused</h2>
+                </div>
+            </div>
+        </div>
 
-<?php if ($success): ?>
-    <div class="alert alert-success"><?php echo $success; ?></div>
-<?php endif; ?>
+        <div class="row">
+        <?php
+        $csvFile = __DIR__ . '/services.csv';
+        $imagesDir = 'pildid/';
+        $fallbackImage = 'assets/img/default-service.jpg';
 
-<?php if (count($services) === 0): ?>
-    <div class="card mb-4">
-        <div class="card-body">
-            <h5>Teenuseid pole laaditud</h5>
-            <p>Pane oma projekti fail <code>services.csv</code> (same folder) ja lisa sinna vähemalt päis + 1 rida teenuseid. Näite all.</p>
+        if (!file_exists($csvFile)) {
+            echo '<div class="col-12"><div class="alert alert-danger">Viga: services.csv ei leitud kaustast ' . htmlspecialchars(__DIR__) . '.</div></div>';
+        } else {
+            $lines = file($csvFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+            if (!$lines || count($lines) < 2) {
+                echo '<div class="col-12"><div class="alert alert-warning">services.csv on tühi või puudub reaalne teenuste rida.</div></div>';
+            } else {
+                $lines[0] = preg_replace('/^\x{FEFF}/u', '', $lines[0]);
+
+                $count = 0;
+                for ($i = 1; $i < count($lines); $i++) {
+                    $row = str_getcsv($lines[$i], ';');
+                    if (!$row || count($row) < 3) continue;
+
+                    $nimi = trim($row[0]);
+                    $hind = trim($row[1]);
+                    $kirjeldus = trim($row[2]);
+                    $pilt = isset($row[3]) ? trim($row[3]) : '';
+
+                    $imgPath = $fallbackImage;
+                    if ($pilt !== '' && file_exists($imagesDir . $pilt)) {
+                        $imgPath = $imagesDir . $pilt;
+                    } elseif (file_exists($imagesDir . strtolower($pilt))) {
+                        $imgPath = $imagesDir . strtolower($pilt);
+                    }
+
+                    $nimi_html = htmlspecialchars($nimi);
+                    $kirjeldus_html = htmlspecialchars($kirjeldus);
+                    $hind_html = htmlspecialchars($hind);
+
+                    echo '<div class="col-md-4 mb-4">';
+                    echo '  <div class="card h-100 text-center shadow">';
+                    echo '    <img src="'. $imgPath .'" class="card-img-top" alt="'. $nimi_html .'" style="max-height:200px;object-fit:cover;">';
+                    echo '    <div class="card-body d-flex flex-column">';
+                    echo '      <h5 class="card-title">'. $nimi_html .'</h5>';
+                    echo '      <p class="card-text">'. $kirjeldus_html .'</p>';
+                    echo '      <p class="fw-bold mt-auto">'. $hind_html .' €</p>';
+                    echo '    </div>';
+                    echo '  </div>';
+                    echo '</div>';
+
+                    $count++;
+                }
+
+                if ($count === 0) {
+                    echo '<div class="col-12"><div class="alert alert-info">CSV fail ei sisalda sobivaid teenuseid (vähemalt 1 rida peale päist).</div></div>';
+                }
+            }
+        }
+        ?>
         </div>
     </div>
-<?php else: ?>
-    <div class="card mb-4">
-        <div class="card-body">
-            <form method="post" novalidate>
-                <div class="mb-3">
-                    <label for="service" class="form-label">Vali teenus</label>
-                    <select name="service" id="service" class="form-select" required>
-                        <option value="">-- Vali teenus --</option>
-                        <?php
-                        $selService = isset($_POST['service']) ? intval($_POST['service']) : -1;
-                        foreach ($services as $i => $s) {
-                            $label = htmlspecialchars($s['name']) . ' (' . number\_format($s['price'], 2, ',', ' ') . ' €)';
-                            $sel = ($i === $selService) ? ' selected' : '';
-                            echo '<option value="' . $i . '"' . $sel . '>' . $label . '</option>';
-                        }
-                        ?>
-                    </select>
-                </div>
+</section>
 
-                <div class="mb-3">
-                    <label class="form-label">Vali auto suurus</label>
-                    <?php $selSize = isset($_POST['car\_size']) ? $_POST['car\_size'] : 'sedaan'; ?>
-                    <div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="car\_size" id="sedaan" value="sedaan" <?php echo ($selSize === 'sedaan') ? 'checked' : ''; ?>>
-                            <label class="form-check-label" for="sedaan">Sedaan (0%)</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="car\_size" id="universaal" value="universaal" <?php echo ($selSize === 'universaal') ? 'checked' : ''; ?>>
-                            <label class="form-check-label" for="universaal">Universaal (+10%)</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="car\_size" id="maastur" value="maastur" <?php echo ($selSize === 'maastur') ? 'checked' : ''; ?>>
-                            <label class="form-check-label" for="maastur">Maastur (+20%)</label>
-                        </div>
-                    </div>
-                </div>
-
-                <button type="submit" class="btn btn-primary">Arvuta hind ja salvesta</button>
-                <a href="index.php" class="btn btn-link">← Tagasi avalehele</a>
-            </form>
-        </div>
-    </div>
-
-    <div class="row g-3">
-        <?php foreach ($services as $s): ?>
-            <div class="col-md-4">
-                <div class="card h-100">
-                    <?php
-                    $imgPath = (!empty($s['img']) && file\_exists(__DIR__ . '/pildid/' . $s['img'])) ? 'pildid/' . $s['img'] : 'assets/img/default-service.jpg';
-                    ?>
-                    <img src="<?php echo htmlspecialchars($imgPath); ?>" class="card-img-top" alt="<?php echo htmlspecialchars($s['name']); ?>" style="width: 100%; height: 200px; object-fit: cover;">
-                    <div class="card-body">
-                        <h5 class="card-title"><?php echo htmlspecialchars($s['name']); ?></h5>
-                        <p class="card-text small"><?php echo htmlspecialchars($s['desc']); ?></p>
-
-
-<!-- Bootstrap JS (popper + bundle)
+Bootstrap JS (popper + bundle)
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-..." crossorigin="anonymous"></script>
 </body>
-</html> -->
+</html>
     </main>
     <footer>
         <div class="footer-wrapper section-bg2"  data-background="assets/img/gallery/footer-bg.png">
