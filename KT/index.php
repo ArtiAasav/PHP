@@ -221,7 +221,7 @@
                                 <img src="assets/img/icon/services1.svg" alt="">
                             </div>
                             <div class="cat-cap">
-                                <h5>Car wash 100% without detergents</h5>
+                                <h3>Car wash 100% without detergents</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
                             </div>
                         </div>
@@ -232,7 +232,7 @@
                                 <img src="assets/img/icon/services2.svg" alt="">
                             </div>
                             <div class="cat-cap">
-                                <h5>Efficient surface drying machines</h5>
+                                <h3>Efficient surface drying machines</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
                             </div>
                         </div>
@@ -243,7 +243,7 @@
                                 <img src="assets/img/icon/services3.svg" alt="">
                             </div>
                             <div class="cat-cap">
-                                <h5>We have an application</h5>
+                                <h3>We have an application</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
                             </div>
                         </div>
@@ -254,7 +254,7 @@
                                 <img src="assets/img/icon/services4.svg" alt="">
                             </div>
                             <div class="cat-cap">
-                                <h5>Safe lacquer protection</h5>
+                                <h3>Safe lacquer protection</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
                             </div>
                         </div>

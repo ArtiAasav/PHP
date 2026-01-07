@@ -79,7 +79,6 @@
         </div>
         <!-- Header End -->
     </header>
-</div>
 
     <main>
       <section class="pricing-card-area fix section-padding30">
@@ -102,7 +101,7 @@
             echo '<div class="col-12"><div class="alert alert-danger">Viga: services.csv ei leitud kaustast ' . htmlspecialchars(__DIR__) . '.</div></div>';
         } else {
             $lines = file($csvFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-            if (!$lines || count($lines) < 2) {
+            if (!$lines || count($lines)<2) {
                 echo '<div class="col-12"><div class="alert alert-warning">services.csv on tühi või puudub reaalne teenuste rida.</div></div>';
             } else {
                 $lines[0] = preg_replace('/^\x{FEFF}/u', '', $lines[0]);
@@ -110,7 +109,7 @@
                 $count = 0;
                 for ($i = 1; $i < count($lines); $i++) {
                     $row = str_getcsv($lines[$i], ';');
-                    if (!$row || count($row) < 3) continue;
+                    if (!$row || count($row)<3) continue;
 
                     $nimi = trim($row[0]);
                     $hind = trim($row[1]);
@@ -128,7 +127,7 @@
                     $kirjeldus_html = htmlspecialchars($kirjeldus);
                     $hind_html = htmlspecialchars($hind);
 
-                    echo '<div class="col-md-4 mb-4">'; // Ensure this is 4 to fit 3 per row
+                    echo '<div class="col-md-4 mb-4">';
                     echo '  <div class="card h-100 text-center shadow">';
                     echo '    <img src="'. $imgPath .'" class="card-img-top" alt="'. $nimi_html .'" style="max-height:200px;object-fit:cover;">';
                     echo '    <div class="card-body d-flex flex-column">';
@@ -149,7 +148,6 @@
             }
         }
         ?>
-        </div>
     </div>
 </section>
     </main>
