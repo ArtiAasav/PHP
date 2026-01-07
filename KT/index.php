@@ -31,6 +31,13 @@
   
 </head>
 
+<style>
+        .carousel-item img {
+            max-height: 800px;
+            object-fit: cover;
+        }
+    </style>
+    
 <body class="full-wrapper">
     <!-- ? Preloader Start -->
     <div id="preloader-active">
@@ -91,13 +98,6 @@
         </div>
         <!-- Header End -->
     </header>
-
-     <style>
-        .carousel-item img {
-            max-height: 800px;
-            object-fit: cover;
-        }
-    </style>
 
     <div id="carouselExample" class="carousel slide">
   <div class="carousel-inner img-fluid">
