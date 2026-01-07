@@ -82,7 +82,7 @@
 </div>
 
     <main>
-    <?php
+    <!-- <?php
 
 $csvFile   = __DIR__ . '/services.csv';
 $orderFile = __DIR__ . '/orders.txt';
@@ -225,7 +225,80 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <?php endforeach; ?>
         </div>
     <?php endif; ?>
-</div>
+</div> -->
+
+<?php if (!empty($errors)): ?>
+    <div class="alert alert-danger">
+        <?php foreach ($errors as $e) echo '<div>' . htmlspecialchars($e) . '</div>'; ?>
+    </div>
+<?php endif; ?>
+
+<?php if ($success): ?>
+    <div class="alert alert-success"><?php echo $success; ?></div>
+<?php endif; ?>
+
+<?php if (count($services) === 0): ?>
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5>Teenuseid pole laaditud</h5>
+            <p>Pane oma projekti fail <code>services.csv</code> (same folder) ja lisa sinna vähemalt päis + 1 rida teenuseid. Näite all.</p>
+        </div>
+    </div>
+<?php else: ?>
+    <div class="card mb-4">
+        <div class="card-body">
+            <form method="post" novalidate>
+                <div class="mb-3">
+                    <label for="service" class="form-label">Vali teenus</label>
+                    <select name="service" id="service" class="form-select" required>
+                        <option value="">-- Vali teenus --</option>
+                        <?php
+                        $selService = isset($_POST['service']) ? intval($_POST['service']) : -1;
+                        foreach ($services as $i => $s) {
+                            $label = htmlspecialchars($s['name']) . ' (' . number\_format($s['price'], 2, ',', ' ') . ' €)';
+                            $sel = ($i === $selService) ? ' selected' : '';
+                            echo '<option value="' . $i . '"' . $sel . '>' . $label . '</option>';
+                        }
+                        ?>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Vali auto suurus</label>
+                    <?php $selSize = isset($_POST['car\_size']) ? $_POST['car\_size'] : 'sedaan'; ?>
+                    <div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="car\_size" id="sedaan" value="sedaan" <?php echo ($selSize === 'sedaan') ? 'checked' : ''; ?>>
+                            <label class="form-check-label" for="sedaan">Sedaan (0%)</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="car\_size" id="universaal" value="universaal" <?php echo ($selSize === 'universaal') ? 'checked' : ''; ?>>
+                            <label class="form-check-label" for="universaal">Universaal (+10%)</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="car\_size" id="maastur" value="maastur" <?php echo ($selSize === 'maastur') ? 'checked' : ''; ?>>
+                            <label class="form-check-label" for="maastur">Maastur (+20%)</label>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Arvuta hind ja salvesta</button>
+                <a href="index.php" class="btn btn-link">← Tagasi avalehele</a>
+            </form>
+        </div>
+    </div>
+
+    <div class="row g-3">
+        <?php foreach ($services as $s): ?>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <?php
+                    $imgPath = (!empty($s['img']) && file\_exists(__DIR__ . '/pildid/' . $s['img'])) ? 'pildid/' . $s['img'] : 'assets/img/default-service.jpg';
+                    ?>
+                    <img src="<?php echo htmlspecialchars($imgPath); ?>" class="card-img-top" alt="<?php echo htmlspecialchars($s['name']); ?>" style="width: 100%; height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo htmlspecialchars($
+
 
 <!-- Bootstrap JS (popper + bundle) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
