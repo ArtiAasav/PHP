@@ -32,18 +32,6 @@
 </head>
 
 <body class="full-wrapper">
-    <!-- ? Preloader Start -->
-    <div id="preloader-active">
-        <div class="preloader d-flex align-items-center justify-content-center">
-            <div class="preloader-inner position-relative">
-                <div class="preloader-circle"></div>
-                <div class="preloader-img pere-text">
-                    <img src="assets/img/logo/loder.png" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Preloader Start -->
     <header>
         <!-- Header Start -->
         <div class="header-area">
@@ -91,39 +79,6 @@
         </div>
         <!-- Header End -->
     </header>
-
-     <style>
-        .carousel-item img {
-            max-height: 800px;
-            object-fit: cover;
-        }
-    </style>
-
-    <div id="carouselExample" class="carousel slide">
-  <div class="carousel-inner img-fluid">
-    
-        <?php
-        $pildid = glob('reklaam/*.{jpg,jpeg,png,gif}', GLOB_BRACE);
-        shuffle($pildid);
-        $active = 'active';
-
-        foreach ($pildid as $pilt) {
-            echo '<div class="carousel-item ' . $active . '">';
-            echo '<img src="' . $pilt . '" class="d-block w-100 img-fluid" alt="Reklaam">';
-            echo '</div>';
-            $active = '';
-        }
-        ?>
-
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
 </div>
 
     <main>
