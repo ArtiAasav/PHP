@@ -225,13 +225,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php endif; ?>
 </div>
 
-Bootstrap JS (popper + bundle)
+<!-- Bootstrap JS (popper + bundle) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-..." crossorigin="anonymous"></script>
 
     </main>
-</body>
-</html>
     <footer>
         <div class="footer-wrapper section-bg2"  data-background="assets/img/gallery/footer-bg.png">
             <!-- Footer Start-->
