@@ -1,78 +1,59 @@
-<section class="pricing-card-area fix section-padding30">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-6 col-lg-7 col-md-10">
-                        <div class="section-tittle text-center mb-90">
-                            <h2>Meie teenused</h2>
-                        </div>
-                    </div>
-                </div>
+<?php
+// Initialize an empty array for services
+$services = [];
 
-                <div class="row">
-                <?php
-                // === DEBUG: lülita ajutiselt sisse, kui tahad näha vigu ===
-                // ini_set('display_errors',1); error_reporting(E_ALL);
+// Open the CSV file for reading
+if (($handle = fopen("services.csv", "r")) !== FALSE) {
+    // Get the header row and replace ';' with ',' for compatibility
+    $header = fgetcsv($handle, 1000, ";");
 
-                $csvFile = __DIR__ . '/services.csv'; // kontrollib sama kausta
-                $imagesDir = 'pildid/'; // piltide kaust (muuda vajadusel)
-                $fallbackImage = 'assets/img/default-service.jpg'; // varupilt - lisa see faili
+    // Loop through each row of the CSV
+    while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
+        $services[] = array_combine($header, $data); // Combine header and row data
+    }
+    fclose($handle); // Close the file handle
+}
+?>
 
-                if (!file_exists($csvFile)) {
-                    echo '<div class="col-12"><div class="alert alert-danger">Viga: services.csv ei leitud kaustast ' . htmlspecialchars(__DIR__) . '.</div></div>';
-                } else {
-                    // Loeme read (ignoreerime tühjad read)
-                    $lines = file($csvFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-                    if (!$lines || count($lines) < 2) {
-                        echo '<div class="col-12"><div class="alert alert-warning">services.csv on tühi või puudub reaalne teenuste rida.</div></div>';
-                    } else {
-                        // Eemaldame võimaliku BOM esimese read algusest
-                        $lines[0] = preg_replace('/^\x{FEFF}/u', '', $lines[0]);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin: 10px;
+            width: calc(25% - 20px); /* 4 cards in a row */
+            padding: 15px;
+            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .card img {
+            max-width: 100%; /* Responsive image */
+            height: auto;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
 
-                        $count = 0;
-                        // Jätame esimese rea (päise) vahele
-                        for ($i = 1; $i < count($lines); $i++) {
-                            $row = str_getcsv($lines[$i], ';');
-                            // tagame vähemalt 3 veergu (nimi;hind;kirjeldus ja vabatahtlik pilt)
-                            if (!$row || count($row) < 3) continue;
+<div class="container">
+    <?php foreach ($services as $service): ?>
+        <div class="card">
+            <h3><?php echo htmlspecialchars($service['Teenuse nimi']); ?></h3>
+            <p><strong><?php echo htmlspecialchars($service['Hind']); ?> €</strong></p>
+            <p><?php echo htmlspecialchars($service['Kirjeldus']); ?></p>
+            <img src="<?php echo htmlspecialchars($service['Pilt']); ?>" alt="<?php echo htmlspecialchars($service['Teenuse nimi']); ?>">
+        </div>
+    <?php endforeach; ?>
+</div>
 
-                            $nimi = trim($row[0]);
-                            $hind = trim($row[1]);
-                            $kirjeldus = trim($row[2]);
-                            $pilt = isset($row[3]) ? trim($row[3]) : '';
-
-                            // fallback pilt kui puudub
-                            $imgPath = $fallbackImage;
-                            if ($pilt !== '' && file_exists($imagesDir . $pilt)) {
-                                $imgPath = $imagesDir . $pilt;
-                            } elseif (file_exists($imagesDir . strtolower($pilt))) {
-                                $imgPath = $imagesDir . strtolower($pilt);
-                            }
-
-                            // turvaline väljaprintimine
-                            $nimi_html = htmlspecialchars($nimi);
-                            $kirjeldus_html = htmlspecialchars($kirjeldus);
-                            $hind_html = htmlspecialchars($hind);
-
-                            echo '<div class="col-md-4 mb-4">';
-                            echo '  <div class="card h-100 text-center shadow">';
-                            echo '    <img src="'. $imgPath .'" class="card-img-top" alt="'. $nimi_html .'" style="max-height:200px;object-fit:cover;">';
-                            echo '    <div class="card-body d-flex flex-column">';
-                            echo '      <h5 class="card-title">'. $nimi_html .'</h5>';
-                            echo '      <p class="card-text">'. $kirjeldus_html .'</p>';
-                            echo '      <p class="fw-bold mt-auto">'. $hind_html .' €</p>';
-                            echo '      <a href="#" class="btn btn-primary">Lisa ostukorvi</a>';
-                            echo '    </div>';
-                            echo '  </div>';
-                            echo '</div>';
-
-                            $count++;
-                        }
-
-                        if ($count === 0) {
-                            echo '<div class="col-12"><div class="alert alert-info">CSV fail ei sisalda sobivaid teenuseid (vähemalt 1 rida peale päist).</div></div>';
-                        }
-                    }
-                }
-                ?>
-                </div>
-            </div>
+</body>
+</html>
