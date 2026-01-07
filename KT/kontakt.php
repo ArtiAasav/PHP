@@ -79,7 +79,6 @@
         </div>
         <!-- Header End -->
     </header>
-</div>
 
     <main>
        <div class="container py-5">
