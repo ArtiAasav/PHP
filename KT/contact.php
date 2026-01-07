@@ -52,7 +52,7 @@
                                         <nav>
                                             <ul id="navigation">                                                                                          
                                                 <li><a href="index.php">Avaleht</a></li>
-                                                <li><a href="about.php">Autopesu kalkulaator</a></li>
+                                                <li><a href="kalkulaator.php">Autopesu kalkulaator</a></li>
                                                 <li><a href="services.html">Teenused</a></li>
                                                 <li><a href="contact.php">Kontakt</a>
                                                     <!-- <ul class="submenu">
