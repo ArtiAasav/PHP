@@ -297,7 +297,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     ?>
                     <img src="<?php echo htmlspecialchars($imgPath); ?>" class="card-img-top" alt="<?php echo htmlspecialchars($s['name']); ?>" style="width: 100%; height: 200px; object-fit: cover;">
                     <div class="card-body">
-                        <h5 class="card-title"><?php echo htmlspecialchars($
+                        <h5 class="card-title"><?php echo htmlspecialchars($s['name']); ?></h5>
+                        <p class="card-text small"><?php echo htmlspecialchars($s['desc']); ?></p>
 
 
 <!-- Bootstrap JS (popper + bundle) -->
