@@ -82,7 +82,7 @@
 </div>
 
     <main>
-    <!-- <?php
+     <?php
 
 $csvFile   = __DIR__ . '/services.csv';
 $orderFile = __DIR__ . '/orders.txt';
@@ -214,7 +214,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <?php
                         $imgPath = (!empty($s['img']) && file_exists(__DIR__ . '/pildid/' . $s['img'])) ? 'pildid/' . $s['img'] : 'assets/img/default-service.jpg';
                         ?>
-                        <img src="<?php echo htmlspecialchars($imgPath); ?>" class="card-img-top" alt="<?php echo htmlspecialchars($s['name']); ?>">
+                        <img src="<?php echo htmlspecialchars($imgPath); ?>" class="card-img-top" style="max-height:200px;object-fit:cover;" alt="<?php echo htmlspecialchars($s['name']); ?>">
                         <div class="card-body">
                             <h5 class="card-title"><?php echo htmlspecialchars($s['name']); ?></h5>
                             <p class="card-text small"><?php echo htmlspecialchars($s['desc']); ?></p>
@@ -225,77 +225,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <?php endforeach; ?>
         </div>
     <?php endif; ?>
-</div> -->
+</div>
 
-<section class="pricing-card-area fix section-padding30">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-xl-6 col-lg-7 col-md-10">
-                <div class="section-tittle text-center mb-90">
-                    <h2>Meie teenused</h2>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-        <?php
-        $csvFile = __DIR__ . '/services.csv';
-        $imagesDir = 'pildid/';
-        $fallbackImage = 'assets/img/default-service.jpg';
-
-        if (!file_exists($csvFile)) {
-            echo '<div class="col-12"><div class="alert alert-danger">Viga: services.csv ei leitud kaustast ' . htmlspecialchars(__DIR__) . '.</div></div>';
-        } else {
-            $lines = file($csvFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-            if (!$lines || count($lines) < 2) {
-                echo '<div class="col-12"><div class="alert alert-warning">services.csv on tühi või puudub reaalne teenuste rida.</div></div>';
-            } else {
-                $lines[0] = preg_replace('/^\x{FEFF}/u', '', $lines[0]);
-
-                $count = 0;
-                for ($i = 1; $i < count($lines); $i++) {
-                    $row = str_getcsv($lines[$i], ';');
-                    if (!$row || count($row) < 3) continue;
-
-                    $nimi = trim($row[0]);
-                    $hind = trim($row[1]);
-                    $kirjeldus = trim($row[2]);
-                    $pilt = isset($row[3]) ? trim($row[3]) : '';
-
-                    $imgPath = $fallbackImage;
-                    if ($pilt !== '' && file_exists($imagesDir . $pilt)) {
-                        $imgPath = $imagesDir . $pilt;
-                    } elseif (file_exists($imagesDir . strtolower($pilt))) {
-                        $imgPath = $imagesDir . strtolower($pilt);
-                    }
-
-                    $nimi_html = htmlspecialchars($nimi);
-                    $kirjeldus_html = htmlspecialchars($kirjeldus);
-                    $hind_html = htmlspecialchars($hind);
-
-                    echo '<div class="col-md-4 mb-4">';
-                    echo '  <div class="card h-100 text-center shadow">';
-                    echo '    <img src="'. $imgPath .'" class="card-img-top" alt="'. $nimi_html .'" style="max-height:200px;object-fit:cover;">';
-                    echo '    <div class="card-body d-flex flex-column">';
-                    echo '      <h5 class="card-title">'. $nimi_html .'</h5>';
-                    echo '      <p class="card-text">'. $kirjeldus_html .'</p>';
-                    echo '      <p class="fw-bold mt-auto">'. $hind_html .' €</p>';
-                    echo '    </div>';
-                    echo '  </div>';
-                    echo '</div>';
-
-                    $count++;
-                }
-
-                if ($count === 0) {
-                    echo '<div class="col-12"><div class="alert alert-info">CSV fail ei sisalda sobivaid teenuseid (vähemalt 1 rida peale päist).</div></div>';
-                }
-            }
-        }
-        ?>
-        </div>
-    </div>
-</section>
 
 Bootstrap JS (popper + bundle)
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
