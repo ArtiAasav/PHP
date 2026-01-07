@@ -121,15 +121,13 @@ if ($success) {
 }
 ?>
 
-<!-- Kaardi konteiner -->
-<div class="mb-5"> <!-- lisab ruumi all vormi ja kaardi vahel -->
+<div class="mb-5">
     <div id="map">
         <iframe width="100%" height="400" class="border" frameborder="0" scrolling="no"
         src="https://www.openstreetmap.org/export/embed.html?bbox=24.745%2C59.435%2C24.765%2C59.445&layer=mapnik&marker=59.44%2C24.755">
         </iframe>
     </div>
 
-    <!-- Vaata suurem kaart eraldi plokis -->
     <div class="mt-2 mb-4">
         <small class="d-block">
             <a href="https://www.openstreetmap.org/?mlat=59.44&mlon=24.755#map=16/59.44/24.755" target="_blank">
@@ -138,9 +136,6 @@ if ($success) {
         </small>
     </div>
 </div>
-
-
-    <!-- Kontaktivorm -->
     <form method="post" novalidate>
         <div class="mb-3">
             <label for="name" class="form-label">Nimi</label>
