@@ -73,7 +73,7 @@
                                                 <li><a href="index.php">Avaleht</a></li>
                                                 <li><a href="kalkulaator.php">Autopesu kalkulaator</a></li>
                                                 <li><a href="teenused.php">Teenused</a></li>
-                                                <li><a href="contact.php">Kontakt</a>
+                                                <li><a href="kontakt.php">Kontakt</a>
                                                     <!-- <ul class="submenu">
                                                         <li><a href="blog.html">Blog</a></li>
                                                         <li><a href="blog_details.html">Blog Details</a></li>
@@ -147,7 +147,7 @@
         </section>
         <!-- Office environment  End-->
         <!--? Testimonial Area Start -->
-        <section class="testimonial-area testimonial-padding fix">
+        <div class="testimonial-area testimonial-padding fix">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-xl-8 col-lg-8">
@@ -199,7 +199,7 @@
             <div class="testimonial-right-img">
                 <img src="assets/img/gallery/testimonial-right-img.png" alt="">
             </div>
-        </section>
+    </div>
         <!--? Testimonial Area End -->
         <!--? Services Area Start -->
         <section class="categories-area section-padding40">
