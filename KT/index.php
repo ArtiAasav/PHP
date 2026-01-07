@@ -275,7 +275,7 @@
                             </div>
                         </div>
                         <div class="section-tittle section-tittle2 mb-90">
-                            <h2>Your car will look as your new one</h2>
+                            <h4>Your car will look as your new one</h4>
                             <p>Duis aute irure dolor inasfa reprehenderit in voluptate velit esse cillum reeut cupidatatfug.</p>
                         </div>
                     </div>
@@ -324,7 +324,7 @@
                         <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
                             <div class="single-footer-caption mb-50">
                                 <div class="footer-tittle">
-                                    <h4>Opening hour</h4>
+                                    <h3>Opening hour</h3>
                                     <ul>
                                         <li><a href="#">Mon-Fri (9.00-19.00)</a></li>
                                         <li><a href="#">Sat (12.00-19.00)</a></li>
@@ -336,7 +336,7 @@
                         <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6">
                             <div class="single-footer-caption mb-50">
                                 <div class="footer-tittle">
-                                    <h4>Navigation</h4>
+                                    <h3>Navigation</h3>
                                     <ul>
                                         <li><a href="#">Home</a></li>
                                         <li><a href="#">About</a></li>
