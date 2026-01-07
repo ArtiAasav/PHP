@@ -61,7 +61,7 @@
                                                         <li><a href="elements.html">Element</a></li>
                                                     </ul> -->
                                                 </li>
-                                                <li><a href="contact.html">Ostukorv</a></li>
+                                                <li><a href="ostukorv.php">Ostukorv</a></li>
                                             </ul>
                                         </nav>
                                     </div>
