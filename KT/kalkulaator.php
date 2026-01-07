@@ -78,7 +78,6 @@
         </div>
         <!-- Header End -->
     </header>
-</div>
 
     <main>
      <?php
@@ -158,7 +157,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php if (count($services) === 0): ?>
         <div class="card mb-4">
             <div class="card-body">
-                <h5>Teenuseid pole laaditud</h5>
+                <h2>Teenuseid pole laaditud</h2>
                 <p>Pane oma projekti fail <code>services.csv</code> (same folder) ja lisa sinna vähemalt päis + 1 rida teenuseid. Näite all.</p>
             </div>
         </div>
@@ -226,13 +225,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php endif; ?>
 </div>
 
-
 Bootstrap JS (popper + bundle)
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-..." crossorigin="anonymous"></script>
+
+    </main>
 </body>
 </html>
-    </main>
     <footer>
         <div class="footer-wrapper section-bg2"  data-background="assets/img/gallery/footer-bg.png">
             <!-- Footer Start-->
@@ -261,7 +260,7 @@ Bootstrap JS (popper + bundle)
                         <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
                             <div class="single-footer-caption mb-50">
                                 <div class="footer-tittle">
-                                    <h4>Opening hour</h4>
+                                    <h3>Opening hour</h3>
                                     <ul>
                                         <li><a href="#">Mon-Fri (9.00-19.00)</a></li>
                                         <li><a href="#">Sat (12.00-19.00)</a></li>
