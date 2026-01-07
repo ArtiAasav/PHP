@@ -131,7 +131,7 @@
                     echo '  <div class="card h-100 text-center shadow">';
                     echo '    <img src="'. $imgPath .'" class="card-img-top" alt="'. $nimi_html .'" style="max-height:200px;object-fit:cover;">';
                     echo '    <div class="card-body d-flex flex-column">';
-                    echo '      <h5 class="card-title">'. $nimi_html .'</h5>';
+                    echo '      <h2 class="card-title">'. $nimi_html .'</h2>';
                     echo '      <p class="card-text">'. $kirjeldus_html .'</p>';
                     echo '      <p class="fw-bold mt-auto">'. $hind_html .' €</p>';
                     echo '      <a href="#" class="btn btn-primary">Lisa ostukorvi</a>';
@@ -148,6 +148,7 @@
             }
         }
         ?>
+    </div>
     </div>
 </section>
     </main>
